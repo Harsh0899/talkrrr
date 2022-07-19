@@ -21,6 +21,8 @@ function App() {
   const [selectedFriend, setSelectedFriend] = useState(null);
   const [selectedChannel, setSelectedChannel] = useState(null);
   const [selectedChannelType, setSelectedChannelType] = useState(null);
+  const [serverList, setServerList] = useState(['server1']);
+  const [serverCount, setServerCount] = useState(1);
 
   useEffect(() => {
     initAuthUser();
@@ -55,12 +57,13 @@ function App() {
   };
 
   return (
-    <Context.Provider value={{ isLoading, setIsLoading, user, setUser, cometChat, selectedMenu, setSelectedMenu, hasNewFriend, setHasNewFriend, selectedFriend, setSelectedFriend, selectedChannel, setSelectedChannel, selectedChannelType, setSelectedChannelType }}>
+    <Context.Provider value={{ isLoading, setIsLoading, user, setUser, cometChat, selectedMenu, setSelectedMenu, hasNewFriend, setHasNewFriend, selectedFriend, setSelectedFriend, selectedChannel, setSelectedChannel, selectedChannelType, setSelectedChannelType, serverList, setServerList, serverCount, setServerCount }}>
       <Router>
         {user && <Menus />}
         <Switch>
           <PrivateRoute exact path="/" component={Friend} />
-          <PrivateRoute exact path="/server" component={Server} />
+          {/* <PrivateRoute exact path="/server" component={Server} /> */}
+          {serverList.map((item, index) => <PrivateRoute key={index} exact path={`/${item}`} component={Server} />)}
           <Route exact path="/login">
             <Login />
           </Route>

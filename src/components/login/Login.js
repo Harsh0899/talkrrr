@@ -76,10 +76,7 @@ const Login = (props) => {
   return (
     <div className="login__container">
       <div className="login__welcome">
-        <div className="login__logo">
-          <img src='https://assets-global.website-files.com/5f3c19f18169b65d9d0bf384/5f3c19f18169b655820bf3d4_asset%2021.svg' alt='logo'/>
-        </div>
-        <p>Build <span style={{color: "#404EED", fontWeight: 'bold'}}>Discord Clone</span> with React</p>
+        <p><span style={{color: "#404EED", fontWeight: 'bold', fontSize: '2.5em', marginLeft: '1.5em'}}>Talkrrr!</span></p>
       </div>
       <div className="login__form-container">
         <div className="login__form">
